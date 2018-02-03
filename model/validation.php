@@ -33,3 +33,10 @@ function validIndoor($indoor, $indoors)
     return validOutdoor($indoor,$indoors);
 }
 
+/*
+if (!validString($type))
+{
+    $errors['type'] = "Please enter a valid type.";
+}
+$success = (sizeof($errors) == 0);
+*/
