@@ -68,7 +68,7 @@ permission</pre></div>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['phone]) }}">
+                <check if="{{ isset(@errors['phone']) }}">
                     <p>{{ @errors['phone'] }} </p>
                 </check>
                 <label><h6>Phone Number</h6>

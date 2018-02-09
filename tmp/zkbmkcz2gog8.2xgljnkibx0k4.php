@@ -22,7 +22,7 @@
 
     <div class="border">
         <h1 class="font-weight-bold border-bottom">Profile</h1>
-        <form method="POST" action="#">
+        <form method="POST" action="interests">
             <div>
 
                 <?php if (isset($errors['email'])): ?>
@@ -58,7 +58,7 @@
             </div>
 
 
-            <button type="submit" id="submit" name="submit" class="btn btn-primary float-right"  href="../interests">Next></button>
+            <button type="submit" id="submit" name="submit" class="btn btn-primary float-right" >Next></button>
         </form>
 
 

@@ -56,12 +56,12 @@
             </div>
 
             <div class="border">
-                <p>interests: <?php foreach (($interests?:[]) as $interest): ?>
+                <p>interests!: <?php foreach (($interests?:[]) as $interest): ?>
                         <option value="<?= ($interest) ?>"><?= ($interest) ?></option>
 
                     <?php endforeach; ?></p>
             </div>
-            
+
 
 
 

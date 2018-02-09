@@ -65,7 +65,7 @@ permission</pre></div>
             </div>
 
             <div>
-                <?php if (isset($errors['phone])): ?>
+                <?php if (isset($errors['phone'])): ?>
                     <p><?= ($errors['phone']) ?> </p>
                 <?php endif; ?>
                 <label><h6>Phone Number</h6>

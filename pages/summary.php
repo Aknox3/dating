@@ -56,7 +56,7 @@
             </div>
 
             <div class="border">
-                <p>interests: <repeat group="{{@interests}}" value="{{@interest}}">
+                <p>interests!: <repeat group="{{@interests}}" value="{{@interest}}">
                         <option value="{{@interest}}">{{@interest}}</option>
 
                     </repeat></p>

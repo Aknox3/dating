@@ -9,12 +9,12 @@
 
     $f3 = Base::instance();
 
-    $f3->route('GET /', function($f3) {
+    $f3->route('POST /', function($f3) {
         $template = new Template();
         echo $template->render('pages/home.html');
     });
 
-    $f3->route('GET /personal_info', function($f3) {
+    $f3->route('GET|POST /personal_info', function($f3) {
 
         if(isset($_POST['submit']))
         {
@@ -34,7 +34,7 @@
         echo $template->render('pages/info.php');
     });
 
-    $f3->route('GET /profile', function($f3) {
+    $f3->route('POST|GET /profile', function($f3) {
 
         if(isset($_POST['submit']))
         {
@@ -55,15 +55,16 @@
         echo $template->render('pages/profile.php');
     });
 
-    $f3->route('GET /interests', function() {
+    $f3->route('GET|POST /interests', function() {
         $outdoorInterests = $_POST['outdoorInterests'];
         $indoorInterests = $_POST['IndoorInterests'];
+        $interests = $_POST['outdoorInterests'] . $_POST['IndoorInterests'];
         include 'model/validInterests.php';
         $template = new Template();
         echo $template->render('pages/interests.php');
     });
 
-    $f3->route('GET /profile_summary', function() {
+    $f3->route('GET|POST /profile_summary', function() {
         $template = new Template();
         echo $template->render('pages/summary.php');
     });
