@@ -1,7 +1,4 @@
-<?php
-    if(isset($_POST['submit']))
-        header("Location: interests")
-?>
+
 
 <!doctype html>
 <html lang="en">
@@ -28,30 +25,30 @@
         <form method="POST" action="#">
             <div>
 
-                <check if="{{ isset(@errors['email']) }}">
-                    <p>{{ @errors['email'] }} </p>
-                </check>
+                <?php if (isset($errors['email'])): ?>
+                    <p><?= ($errors['email']) ?> </p>
+                <?php endif; ?>
                 <label><h6>Email</h6>
-                    <input type="text" name="email" value="{{ @email }}"></label>
+                    <input type="text" name="email" value="<?= ($email) ?>"></label>
                 <div class="float-right border">
                 <label> Bio!
-                    <input type="text" name="bio" value="{{ @bio }}">
+                    <input type="text" name="bio" value="<?= ($bio) ?>">
                 </label>
                 </div>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['state']) }}">
-                    <p>{{ @errors['state'] }} </p>
-                </check>
+                <?php if (isset($errors['state'])): ?>
+                    <p><?= ($errors['state']) ?> </p>
+                <?php endif; ?>
                 <label><h6>State</h6>
-                    <input type="text" name="state" value="{{ @state }}"></label>
+                    <input type="text" name="state" value="<?= ($state) ?>"></label>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['seeking']) }}">
-                    <p>{{ @errors['seeking'] }} </p>
-                </check>
+                <?php if (isset($errors['seeking'])): ?>
+                    <p><?= ($errors['seeking']) ?> </p>
+                <?php endif; ?>
                 <h6>Seeking</h6>
                 <label>Male
                     <input type="checkbox" name="seeking" value="male"></label>

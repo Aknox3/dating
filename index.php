@@ -31,7 +31,7 @@
             $f3->set('success', $success);
         }
         $template = new Template();
-        echo $template->render('pages/info.html');
+        echo $template->render('pages/info.php');
     });
 
     $f3->route('GET /profile', function($f3) {
@@ -52,20 +52,20 @@
 
         }
         $template = new Template();
-        echo $template->render('pages/profile.html');
+        echo $template->render('pages/profile.php');
     });
 
     $f3->route('GET /interests', function() {
         $outdoorInterests = $_POST['outdoorInterests'];
-        $indoorInterests = $_POST['outdoorInterests'];
+        $indoorInterests = $_POST['IndoorInterests'];
         include 'model/validInterests.php';
         $template = new Template();
-        echo $template->render('pages/interests.html');
+        echo $template->render('pages/interests.php');
     });
 
     $f3->route('GET /profile_summary', function() {
         $template = new Template();
-        echo $template->render('pages/summary.html');
+        echo $template->render('pages/summary.php');
     });
 
     $f3->run();

@@ -28,40 +28,40 @@
             </div>
 
             <div class="border">
-                <p>Name: {{ @name }} </p>
+                <p>Name: <?= ($name) ?> </p>
             </div>
 
             <div class="border">
-                <p>Gender: {{ @gender }}</p>
+                <p>Gender: <?= ($gender) ?></p>
             </div>
 
             <div class="border">
-                <p>Age: {{ @age }}</p>
+                <p>Age: <?= ($age) ?></p>
             </div>
 
             <div class="border">
-                <p>Phone: {{ @phone }}</p>
+                <p>Phone: <?= ($phone) ?></p>
             </div>
 
             <div class="border">
-                <p>Email: {{ @email }}</p>
+                <p>Email: <?= ($email) ?></p>
             </div>
 
             <div class="border">
-                <p>State: {{ @state }}</p>
+                <p>State: <?= ($state) ?></p>
             </div>
 
             <div class="border">
-                <p>Seeking: {{ @seeking }}</p>
+                <p>Seeking: <?= ($seeking) ?></p>
             </div>
 
             <div class="border">
-                <p>interests: <repeat group="{{@interests}}" value="{{@interest}}">
-                        <option value="{{@interest}}">{{@interest}}</option>
+                <p>interests: <?php foreach (($interests?:[]) as $interest): ?>
+                        <option value="<?= ($interest) ?>"><?= ($interest) ?></option>
 
-                    </repeat></p>
+                    <?php endforeach; ?></p>
             </div>
-
+            
 
 
 

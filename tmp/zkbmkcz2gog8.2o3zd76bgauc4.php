@@ -1,7 +1,4 @@
-<?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-?>
+
 
 <!doctype html>
 <html lang="en">
@@ -27,11 +24,11 @@ ini_set("display_errors", 1);
         <h1 class="font-weight-bold border-bottom">Personal Information</h1>
         <form method="POST" action="profile">
             <div>
-                <check if="{{ isset(@errors['fname']) }}">
-                    <p>{{ @errors['fname'] }} </p>
-                </check>
+                <?php if (isset($errors['fname'])): ?>
+                    <p><?= ($errors['fname']) ?> </p>
+                <?php endif; ?>
                 <label><h6>First Name</h6>
-                    <input type="text" name="fname" value=" {{ @fname }}"></label>
+                    <input type="text" name="fname" value=" <?= ($fname) ?>"></label>
                 <div class="float-right border">
                 <pre class="bg-light"><b>Note</b>: All information entered is protected
 by our <span class="text-primary">privacy policy</span>. Profile Information
@@ -40,25 +37,25 @@ permission</pre></div>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['lname']) }}">
-                    <p>{{ @errors['lname'] }} </p>
-                </check>
+                <?php if (isset($errors['lname'])): ?>
+                    <p><?= ($errors['lname']) ?> </p>
+                <?php endif; ?>
                 <label><h6>Last Name</h6>
-                    <input type="text" name="lname" value="{{ @lname }}"></label>
+                    <input type="text" name="lname" value="<?= ($lname) ?>"></label>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['age']) }}">
-                    <p>{{ @errors['age'] }} </p>
-                </check>
+                <?php if (isset($errors['age'])): ?>
+                    <p><?= ($errors['age']) ?> </p>
+                <?php endif; ?>
                 <label><h6>Age</h6>
-                    <input type="text" name="age" value="{{ @age }}"></label>
+                    <input type="text" name="age" value="<?= ($age) ?>"></label>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['phone']) }}">
-                    <p>{{ @errors['phone'] }} </p>
-                </check>
+                <?php if (isset($errors['phone'])): ?>
+                    <p><?= ($errors['phone']) ?> </p>
+                <?php endif; ?>
                 <h6>Gender</h6>
                 <label>Male
                     <input type="checkbox" name="gender" value="male"></label>
@@ -68,11 +65,11 @@ permission</pre></div>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['phone]) }}">
-                    <p>{{ @errors['phone'] }} </p>
-                </check>
+                <?php if (isset($errors['phone])): ?>
+                    <p><?= ($errors['phone']) ?> </p>
+                <?php endif; ?>
                 <label><h6>Phone Number</h6>
-                    <input type="text" name="phone" value="{{ @phone }}"></label>
+                    <input type="text" name="phone" value="<?= ($phone) ?>"></label>
             </div>
             <input type="submit" class="btn btn-primary float-right" >Next>
         </form>
