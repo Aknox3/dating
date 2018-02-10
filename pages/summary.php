@@ -28,7 +28,7 @@
             </div>
 
             <div class="border">
-                <p>Name: {{ @name }} </p>
+                <p>Name: {{ @fname }} {{ @lname }} </p>
             </div>
 
             <div class="border">
