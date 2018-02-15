@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * Class Member
+ * A member class which contains info about a member
+ * @author Ashton Knox
+ * @version 1.1
+ */
 class Member
 {
     protected $fname;
@@ -11,8 +18,13 @@ class Member
     protected $seeking;
     protected $bio;
 
-    /*
-     * Constructor for a member object
+    /**
+     * Member constructor.
+     * @param $fname
+     * @param $lname
+     * @param $age
+     * @param $gender
+     * @param $phone
      */
     function __construct($fname, $lname,$age,$gender,$phone)
     {
@@ -23,7 +35,8 @@ class Member
         $this->phone = $phone;
     }
 
-    /*
+    /**
+     * @return String name
      * Returns the first name of this member
      */
     function getfName()
@@ -31,7 +44,8 @@ class Member
         return $this->fname;
     }
 
-    /*
+    /**
+     * @param $fname
      * sets the first name of this member to the given string
      */
     function setfName($fname)
@@ -39,7 +53,8 @@ class Member
         $this->fname = $fname;
     }
 
-    /*
+    /**
+     * @return String lname
      * returns the last name of this member
      */
     function getlName()
@@ -47,7 +62,8 @@ class Member
         return $this->lname;
     }
 
-    /*
+    /**
+     * @param $lname
      * sets the last name of this member to the given string
      */
     function setlName($lname)
@@ -55,7 +71,8 @@ class Member
         $this->lname = $lname;
     }
 
-    /*
+    /**
+     * @return String
      * returns the age of this member
      */
     function getAge()
@@ -63,15 +80,17 @@ class Member
         return $this->age;
     }
 
-    /*
+    /**
+     * @param $age
      * Sets the age of this member to the given int
      */
     function setAge($age)
     {
-        return $this->age = $age;
+        $this->age = $age;
     }
 
-    /*
+    /**
+     * @return String
      * returns the gender of this member object
      */
     function getGender()
@@ -79,15 +98,17 @@ class Member
         return $this->gender;
     }
 
-    /*
+    /**
+     * @param $gender
      * sets the gender of the member object to the given string
      */
     function setGender($gender)
     {
-        return $this->gender = $gender;
+        $this->gender = $gender;
     }
 
-    /*
+    /**
+     * @return String
      * returns the phone number of the given member
      */
     function getPhone()
@@ -95,15 +116,17 @@ class Member
         return $this->phone;
     }
 
-    /*
+    /**
+     * @param $phone
      * sets the phone number of the member to the given string
      */
     function setPhone($phone)
     {
-        return $this->phone = $phone;
+        $this->phone = $phone;
     }
 
-    /*
+    /**
+     * @return String
      * returns the email of the member
      */
     function getEmail()
@@ -111,15 +134,17 @@ class Member
         return $this->email;
     }
 
-    /*
+    /**
+     * @param $email
      * sets the email of the member to the given string
      */
     function setEmail($email)
     {
-        return $this->email = $email;
+        $this->email = $email;
     }
 
-    /*
+    /**
+     * @return String
      * returns the State of the member
      */
     function getState()
@@ -127,15 +152,17 @@ class Member
         return $this->state;
     }
 
-    /*
+    /**
+     * @param $state
      * sets the state of the member to the given string
      */
     function setState($state)
     {
-        return $this->state = $state;
+        $this->state = $state;
     }
 
-    /*
+    /**
+     * @return String
      * returns the seeking of this member object
      */
     function getSeeking()
@@ -143,15 +170,17 @@ class Member
         return $this->seeking;
     }
 
-    /*
+    /**
+     * @param $seeking
      * sets the seeking of this member to the given array
      */
     function setSeeking($seeking)
     {
-        return $this->seeking = $seeking;
+        $this->seeking = $seeking;
     }
 
-    /*
+    /**
+     * @return String
      * returns the bio of the memmber
      */
     function getBio()
@@ -159,11 +188,12 @@ class Member
         return $this->bio;
     }
 
-    /*
+    /**
+     * @param $bio
      * Sets the bio of the member to the given string
      */
     function setBio($bio)
     {
-        return $this->bio = $bio;
+        $this->bio = $bio;
     }
 }
