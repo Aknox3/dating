@@ -22,13 +22,20 @@
             $lname = $_POST['lname'];
             $age = $_POST['age'];
             $gender = $_POST['gender'];
+            $phone = $_POST['phone'];
             include 'model/validPersonal.php';
             $f3->set('fname',$fname);
-            $f3->set('fname',$lname);
-            $f3->set('fname',$age);
-            $f3->set('fname',$gender);
+            $f3->set('lname',$lname);
+            $f3->set('age',$age);
+            $f3->set('gender',$gender);
+            $f3->set('phone',$phone);
             $f3->set('errors', $errors);
             $f3->set('success', $success);
+
+            if($success)
+            {
+                $f3->reroute("/profile");
+            }
         }
         $template = new Template();
         echo $template->render('pages/info.php');

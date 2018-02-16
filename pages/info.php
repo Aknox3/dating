@@ -1,6 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
+
+
 ?>
 
 <!doctype html>
@@ -25,13 +27,13 @@ ini_set("display_errors", 1);
 
     <div class="border">
         <h1 class="font-weight-bold border-bottom">Personal Information</h1>
-        <form method="POST" action="profile">
+        <form method="POST" action="#">
             <div>
                 <check if="{{ isset(@errors['fname']) }}">
                     <p>{{ @errors['fname'] }} </p>
                 </check>
                 <label><h6>First Name</h6>
-                    <input type="text" name="fname" value=" {{ @fname }}"></label>
+                    <input type="text" name="fname" value="{{ @fname }}"></label>
                 <div class="float-right border">
                 <pre class="bg-light"><b>Note</b>: All information entered is protected
 by our <span class="text-primary">privacy policy</span>. Profile Information
@@ -56,8 +58,8 @@ permission</pre></div>
             </div>
 
             <div>
-                <check if="{{ isset(@errors['phone']) }}">
-                    <p>{{ @errors['phone'] }} </p>
+                <check if="{{ isset(@errors['gender']) }}">
+                    <p>{{ @errors['gender'] }} </p>
                 </check>
                 <h6>Gender</h6>
                 <label>Male
@@ -74,7 +76,7 @@ permission</pre></div>
                 <label><h6>Phone Number</h6>
                     <input type="text" name="phone" value="{{ @phone }}"></label>
             </div>
-            <input type="submit" class="btn btn-primary float-right" >Next>
+            <input type="submit" name="submit" class="btn btn-primary float-right" >
         </form>
 
 

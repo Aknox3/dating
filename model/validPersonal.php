@@ -9,12 +9,12 @@ $errors = array();
 //validate personal info
 if (!validName($fname))
 {
-    $errors['name'] = "Please enter a valid name" ;
+    $errors['fname'] = "Please enter a valid name" ;
 }
 
 if (!validName($lname))
 {
-    $errors['name'] = "Please enter a valid name" ;
+    $errors['lname'] = "Please enter a valid name" ;
 }
 
 if (!validAge($age))
@@ -27,4 +27,8 @@ if (!validPhone($phone))
     $errors['phone'] = "Please enter a valid phone number";
 }
 
+if (!validGender($gender))
+{
+    $errors['gender'] = "Please select a gender";
+}
 $success = (sizeof($errors) == 0);

@@ -8,6 +8,11 @@ function validName($name)
     return ctype_alpha($name);
 }
 
+function validGender($gender)
+{
+    return $gender == "male" OR $gender == "female";
+}
+
 function validAge($age)
 {
     //age is a number over 18
