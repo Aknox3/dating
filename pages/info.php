@@ -78,10 +78,6 @@ permission</pre></div>
             </div>
             <input type="submit" name="submit" class="btn btn-primary float-right" >
         </form>
-
-
-
-
     </div>
 </div>
 </body>
