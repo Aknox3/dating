@@ -101,10 +101,13 @@
             $f3->reroute("/profile_summary");
             $outdoorInterests = array($_POST['outdoorInterests[]']);
             $indoorInterests = array($_POST['IndoorInterests[]']);
-            $interests = $_POST['outdoorInterests'] . $_POST['IndoorInterests'];
+
             include 'model/validInterests.php';
 
             if ($success) {
+                $member = $_SESSION['member'];
+                $member->setIndoorInterests($indoorInterests);
+                $member->setOutdoorInterests($outdoorInterests);
                 $f3->reroute("/profile_summary");
             }
         }
@@ -123,7 +126,10 @@
         $f3->set('state', $member->getState());
         $f3->set('bio', $member->getBio());
         $f3->set('seeking', $member->getSeeking());
-        $f3->set('interests ', $f3->get('interests'));
+        if ($_SESSION['premium'] == true) {
+            $interests = $member->getOutdoorInterests . $member->getIndoorInterests;
+        $f3->set('interests ', $interests);
+            }
 
         $template = new Template();
         echo $template->render('pages/summary.php');
