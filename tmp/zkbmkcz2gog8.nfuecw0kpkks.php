@@ -19,7 +19,11 @@
     <div id="base" class="container">
         <div class="border">
             <h1 class="font-weight-bold border-bottom">Interests</h1>
-            <form method="POST" action="../profile_summary">
+            <form method="POST" action="#">
+
+                <?php if (isset($errors['indoor'])): ?><?php endif; ?>
+                    <p><?= ($errors['indoor']) ?> </p>
+
                 <h6 class="text-center">In-door interests</h6>
                 <div class="text-center">
                     <label>tv
@@ -43,6 +47,9 @@
                         <input type="checkbox" name="IndoorInterests[]" value="vgames"/></label>
                 </div>
 
+                <?php if (isset($errors['outdoor'])): ?><?php endif; ?>
+                    <p><?= ($errors['outdoor']) ?> </p>
+
                 <h6 class="text-center">Out-door interests</h6>
                 <div class="text-center">
                     <label>hiking
@@ -61,7 +68,7 @@
                 <label>climbing
                     <input type="checkbox" name="outdoorInterests[]" value="climbing"/></label>
                 </div>
-                <a href="profile_summary"<input type="submit" class="btn btn-primary float-right" >Next>
+                <input type="submit" name="submit" class="btn btn-primary float-right" >
             </form>
 
 

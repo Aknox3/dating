@@ -22,6 +22,7 @@
             if (isset($_POST['premium']))
             {
                 $premium = true;
+                $_SESSION['premium'] = true;
             }
 
             $fname = $_POST['fname'];
@@ -41,7 +42,7 @@
 
             if($success)
             {
-                if ($premium)
+                if (isset($_POST['premium']))
                 {
                     $member = new PremiumMember($fname, $lname, $age, $gender, $phone);
                     $_SESSION['member'] = $member;
@@ -83,7 +84,7 @@
                 $member->setSeeking($seeking);
                 $_SESSION['member'] = $member;
 
-                if ($f3->get('premium') == true) {
+                if ($_SESSION['premium'] == true) {
                     $f3->reroute("/interests");
                 }
                 else{
@@ -96,28 +97,34 @@
     });
 
     $f3->route('GET|POST /interests', function($f3) {
-        $outdoorInterests = $_POST['outdoorInterests'];
-        $indoorInterests = $_POST['IndoorInterests'];
-        $interests = $_POST['outdoorInterests'] . $_POST['IndoorInterests'];
-        include 'model/validInterests.php';
+        if (isset($_POST['submit'])) {
+            $f3->reroute("/profile_summary");
+            $outdoorInterests = array($_POST['outdoorInterests[]']);
+            $indoorInterests = array($_POST['IndoorInterests[]']);
+            $interests = $_POST['outdoorInterests'] . $_POST['IndoorInterests'];
+            include 'model/validInterests.php';
+
+            if ($success) {
+                $f3->reroute("/profile_summary");
+            }
+        }
         $template = new Template();
         echo $template->render('pages/interests.php');
     });
 
     $f3->route('GET|POST /profile_summary', function($f3) {
         $member = $_SESSION['member'];
-        $fname = $member->getFname();
-        $lname = $member->getlname();
-        $age = $member->getAge();
-        $gender = $member->getGender();
-        $phone = $member->getPhone();
-        $email = $member->getEmail();
-        $state = $member->getState();
-        $bio = $member->getBio();
-        $seeking = $member->getSeeking();
-        if ($f3->get('premium')) {
-            $interests = $f3->get('interests');
-        }
+        $f3->set('fname',$member->getFname());
+        $f3->set('lname', $member->getlname());
+        $f3->set('age', $member->getAge());
+        $f3->set('gender', $member->getGender());
+        $f3->set('phone',$member->getPhone());
+        $f3->set('email', $member->getEmail());
+        $f3->set('state', $member->getState());
+        $f3->set('bio', $member->getBio());
+        $f3->set('seeking', $member->getSeeking());
+        $f3->set('interests ', $f3->get('interests'));
+
         $template = new Template();
         echo $template->render('pages/summary.php');
     });

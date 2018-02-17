@@ -17,7 +17,7 @@ foreach ($outdoorInterests as $interest)
 {
     if (!in_Array($outdoorOptions, $interest))
     {
-        $validIndoors = false;
+        $errors['outdoor'] = "invalid outdoor value!";
     }
 }
 
@@ -25,7 +25,7 @@ foreach ($indoorInterests as $interest)
 {
     if (!in_Array($indoorOptions, $interest))
     {
-        $validOutdoors = false;
+        $error['indoor'] = "invalid indoor value!";
     }
 }
 $success = (sizeof($errors) == 0);
