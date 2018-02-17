@@ -30,7 +30,7 @@
             </div>
 
             <div class="border">
-                <p>Name!: <?= ($fname) ?> <?= ($lname) ?></p>
+                <p>Name: <?= ($fname) ?> <?= ($lname) ?></p>
             </div>
 
             <div class="border">
@@ -58,7 +58,7 @@
             </div>
 
             <div class="border">
-                <p>interests!: <?php foreach (($interests?:[]) as $interest): ?>
+                <p>interest: <?php foreach (($interests?:[]) as $interest): ?>
                         <option value="<?= ($interest) ?>"><?= ($interest) ?></option>
 
                     <?php endforeach; ?></p>

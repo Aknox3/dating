@@ -33,7 +33,7 @@ ini_set("display_errors", 1);
             </div>
 
             <div class="border">
-                <p>Name!: {{ @fname }} {{ @lname }}</p>
+                <p>Name: {{ @fname }} {{ @lname }}</p>
             </div>
 
             <div class="border">
@@ -61,7 +61,7 @@ ini_set("display_errors", 1);
             </div>
 
             <div class="border">
-                <p>interests!: <repeat group="{{ @interests }}" value="{{ @interest }}">
+                <p>interest: <repeat group="{{ @interests }}" value="{{ @interest }}">
                         <option value="{{ @interest }}">{{ @interest }}</option>
 
                     </repeat></p>

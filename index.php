@@ -1,7 +1,4 @@
 <?php
-
-
-
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
 
@@ -49,6 +46,7 @@
                 }
                 else{
                     $member = new Member($fname, $lname, $age, $gender, $phone);
+                    $_SESSION['member'] = $member;
                 }
 
                 $f3->reroute("/profile");
@@ -126,10 +124,6 @@
         $f3->set('state', $member->getState());
         $f3->set('bio', $member->getBio());
         $f3->set('seeking', $member->getSeeking());
-        if ($_SESSION['premium'] == true) {
-            $interests = $member->getOutdoorInterests . $member->getIndoorInterests;
-        $f3->set('interests ', $interests);
-            }
 
         $template = new Template();
         echo $template->render('pages/summary.php');
