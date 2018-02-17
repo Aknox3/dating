@@ -22,13 +22,13 @@
 
     <div class="border">
         <h1 class="font-weight-bold border-bottom">Personal Information</h1>
-        <form method="POST" action="profile">
+        <form method="POST" action="#">
             <div>
                 <?php if (isset($errors['fname'])): ?>
                     <p><?= ($errors['fname']) ?> </p>
                 <?php endif; ?>
                 <label><h6>First Name</h6>
-                    <input type="text" name="fname" value=" <?= ($fname) ?>"></label>
+                    <input type="text" name="fname" value="<?= ($fname) ?>"></label>
                 <div class="float-right border">
                 <pre class="bg-light"><b>Note</b>: All information entered is protected
 by our <span class="text-primary">privacy policy</span>. Profile Information
@@ -53,8 +53,8 @@ permission</pre></div>
             </div>
 
             <div>
-                <?php if (isset($errors['phone'])): ?>
-                    <p><?= ($errors['phone']) ?> </p>
+                <?php if (isset($errors['gender'])): ?>
+                    <p><?= ($errors['gender']) ?> </p>
                 <?php endif; ?>
                 <h6>Gender</h6>
                 <label>Male
@@ -71,12 +71,13 @@ permission</pre></div>
                 <label><h6>Phone Number</h6>
                     <input type="text" name="phone" value="<?= ($phone) ?>"></label>
             </div>
-            <input type="submit" class="btn btn-primary float-right" >Next>
+
+            <div>
+                <label><h6>Premium membership</h6>
+                    <input type="checkbox" name="premium" value="premium">Sign me up for a premium account!</label>
+            </div>
+            <input type="submit" name="submit" class="btn btn-primary float-right" >
         </form>
-
-
-
-
     </div>
 </div>
 </body>

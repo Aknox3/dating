@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@
 
     <title>Summary</title>
     <!--Author: Ashton Knox; Date: 2/2/2018; Dating Site summary; -->
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
@@ -28,7 +33,7 @@
             </div>
 
             <div class="border">
-                <p>Name: {{ @fname }} {{ @lname }} </p>
+                <p>Name!: {{ @fname }} {{ @lname }}</p>
             </div>
 
             <div class="border">
@@ -56,8 +61,8 @@
             </div>
 
             <div class="border">
-                <p>interests!: <repeat group="{{@interests}}" value="{{@interest}}">
-                        <option value="{{@interest}}">{{@interest}}</option>
+                <p>interests!: <repeat group="{{ @interests }}" value="{{ @interest }}">
+                        <option value="{{ @interest }}">{{ @interest }}</option>
 
                     </repeat></p>
             </div>

@@ -1,6 +1,6 @@
 <?php
-    if(isset($_POST['submit']))
-        header("Location: interests")
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 ?>
 
 <!doctype html>
@@ -25,16 +25,16 @@
 
     <div class="border">
         <h1 class="font-weight-bold border-bottom">Profile</h1>
-        <form method="POST" action="interests">
+        <form method="POST" action="#">
             <div>
 
                 <check if="{{ isset(@errors['email']) }}">
                     <p>{{ @errors['email'] }} </p>
                 </check>
-                <label><h6>Email</h6>
+                <label><h6>Email!</h6>
                     <input type="text" name="email" value="{{ @email }}"></label>
                 <div class="float-right border">
-                <label> Bio!
+                <label> Bio
                     <input type="text" name="bio" value="{{ @bio }}">
                 </label>
                 </div>
@@ -59,9 +59,12 @@
                 <label>female
                     <input type="checkbox" name="seeking" value="female"></label>
             </div>
+            <repeat group="{{ @errors }}" value="{{ @interest }}">
+                <option value="{{ @interest }}">{{ @interest }}</option>
 
+            </repeat></p>
 
-            <button type="submit" id="submit" name="submit" class="btn btn-primary float-right" >Next></button>
+            <input type="submit"name="submit" class="btn btn-primary float-right">
         </form>
 
 

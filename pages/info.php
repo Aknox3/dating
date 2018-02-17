@@ -76,6 +76,11 @@ permission</pre></div>
                 <label><h6>Phone Number</h6>
                     <input type="text" name="phone" value="{{ @phone }}"></label>
             </div>
+
+            <div>
+                <label><h6>Premium membership</h6>
+                    <input type="checkbox" name="premium" value="premium">Sign me up for a premium account!</label>
+            </div>
             <input type="submit" name="submit" class="btn btn-primary float-right" >
         </form>
     </div>

@@ -19,7 +19,7 @@
     <div id="base" class="container">
         <div class="border">
             <h1 class="font-weight-bold border-bottom">Interests</h1>
-            <form method="POST" action="../profile_summary">
+            <form method="POST" action="#">
                 <h6 class="text-center">In-door interests</h6>
                 <div class="text-center">
                     <label>tv

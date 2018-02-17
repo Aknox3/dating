@@ -7,21 +7,25 @@ require "validation.php";
 $errors = array();
 
 //validate profile
-if (!validName($email))
+if (empty($email))
 {
-    $errors['name'] = "Please enter a valid email" ;
+    $errors['email'] = "Please enter a valid email";
 }
 
 
-if (!validName($state))
+if (empty($state))
 {
-    $errors['name'] = "Please enter a valid state" ;
+    $errors['state'] = "Please enter a valid state";
 }
 
 
-if (!validName($bio))
+if (empty($bio))
 {
-    $errors['name'] = "Please enter a valid bio" ;
+    $errors['bio'] = "Please enter a valid bio";
 }
 
+if ($seeking != 'male' && $seeking != 'female')
+{
+    $errors['seeking'] = "please select a seeking";
+}
 $success = (sizeof($errors) == 0);

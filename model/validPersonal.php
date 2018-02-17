@@ -9,12 +9,12 @@ $errors = array();
 //validate personal info
 if (!validName($fname))
 {
-    $errors['fname'] = "Please enter a valid name" ;
+    $errors['fname'] = "Please enter a valid  first name" ;
 }
 
 if (!validName($lname))
 {
-    $errors['lname'] = "Please enter a valid name" ;
+    $errors['lname'] = "Please enter a valid last name" ;
 }
 
 if (!validAge($age))
