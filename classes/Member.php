@@ -17,6 +17,9 @@ class Member
     protected $state;
     protected $seeking;
     protected $bio;
+    protected $premium;
+    protected $image;
+    protected $interests = array();
 
     /**
      * Member constructor.
@@ -26,7 +29,7 @@ class Member
      * @param $gender
      * @param $phone
      */
-    function __construct($fname, $lname,$age,$gender,$phone)
+    function __construct($fname, $lname, $age, $gender, $phone)
     {
         $this->fname = $fname;
         $this->lname = $lname;
@@ -195,5 +198,33 @@ class Member
     function setBio($bio)
     {
         $this->bio = $bio;
+    }
+
+    function getPremium()
+    {
+        return $this->premium;
+    }
+
+    function setPremium($premium)
+    {
+        $this->premium = $premium;
+    }
+
+    function getInterests()
+    {
+        return $this->interests;
+    }
+
+    function setInterests($interests)
+    {
+        $this->interests = $interests;
+    }
+    function getImage()
+    {
+        return $this->image;
+    }
+    function setImage($image)
+    {
+        $this->image = $image;
     }
 }

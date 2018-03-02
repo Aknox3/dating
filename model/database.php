@@ -82,19 +82,25 @@ function insertStudent($fname, $lname, $age, $gender, $email, $state, $seeking, 
     return $result;
 }
 
-function getStudent($sid)
+function getStudent($fname, $lname)
 {
     global $dbh;
-    $sql = ("SELECT * FROM student WHERE sid = :sid");
+    $sql = ("SELECT * FROM members WHERE fname = :fname AND lname = :lname");
     $statement = $dbh->prepare($sql);
 
     //5. Get the results
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     $first = $result['first'];
-    $student = new Student($sid, $first,$result['last'],$result['gpa'],$result['birthdate'],$result['advisor']);
+    $member = new Member($result['fname'],$result['lname'],$result['age'],$result['gender'],$result['phone']);
     //print_r($result);
-    return $student;
+    $member->setSeeking($result['seeking']);
+    $member->setState($result['state']);
+    $member->setBio($result['bio']);
+    $member->setInterests($result['interests']);
+    $member->setImage($result['image']);
+    $member->setPremium($result['premium']);
+    return $member;
 
 
 }
