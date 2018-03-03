@@ -1,6 +1,3 @@
-<?php
-
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,10 +8,39 @@
     <title>Admin</title>
 </head>
 <body>
-<repeat>
-    <repeat group="{{ @members }}" value="{{ @member }}">
-        <li><a href="{{ @BASE }}/summary/{{ @member['fname'] }}{{ @member['lname']"> {{ @member['lname'] }}, {{ @member['fname'] }}</a></li>
-    </repeat>
-</repeat>
+<h1>Membership</h1>
+<table style="width:100%">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>State</th>
+        <th>Gender</th>
+        <th>Seeking</th>
+        <th>Premium</th>
+        <th>Interests</th>
+    </tr>
+
+        <repeat group="{{ @members }}" value="{{ @member }}">
+            <tr>
+            <td>{{ @member['fname'] }}</td>
+            <td>{{ @member['lname'] }}</td>
+            <td>{{ @member['age'] }}</td>
+            <td>{{ @member['phone'] }}</td>
+            <td>{{ @member['email'] }}</td>
+            <td>{{ @member['state'] }}</td>
+            <td>{{ @member['gender'] }}</td>
+            <td>{{ @member['seeking'] }}</td>
+            <td><check if="{{ @member['premium']}} == 1">
+                <input type="checkbox" checked>
+                </check>
+                <check if="{{ @member['premium']}} != 1"><input type="checkbox"></check></td>
+            <td>{{ @member['interests'] }}</td>
+            </tr>
+        </repeat>
+
+</table>
 </body>
 </html>

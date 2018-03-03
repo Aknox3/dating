@@ -7,6 +7,9 @@
 
     $f3 = Base::instance();
 
+    require ("model/database.php");
+    $dbh = connect();
+
     $f3->route('POST /', function($f3) {
         $template = new Template();
         echo $template->render('pages/home.html');
@@ -126,8 +129,6 @@
         $f3->set('state', $member->getState());
         $f3->set('bio', $member->getBio());
         $f3->set('seeking', $member->getSeeking());
-        require ("model/database.php");
-        $dbh = connect();
         insertMember($member->getfName(),$member->getlName(),$member->getAge(),$member->getGender(),
             $member->getPhone(),$member->getEmail(),$member->getState(),$member->getSeeking(),$member->getBio(),
             $member->getPremium(), $member->getImage(), $member->getInterests());
@@ -137,8 +138,7 @@
     });
 
     $f3->route('GET|POST /admin', function($f3){
-        require ("model/database.php");
-        $dbh = connect();
+
        $f3->set('members',getMembers());
         $template = new Template();
         echo $template->render('pages/admin.php');
