@@ -9,3 +9,6 @@
     width: 80%;
 }
 
+tr {
+    border-top: 5px solid gray;
+}

@@ -137,6 +137,7 @@
         echo $template->render('pages/summary.php');
     });
 
+    //admin page routing
     $f3->route('GET|POST /admin', function($f3){
 
        $f3->set('members',getMembers());
