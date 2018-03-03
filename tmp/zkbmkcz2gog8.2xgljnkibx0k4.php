@@ -17,6 +17,7 @@
 <body>
 <nav class="navbar navbar-light bg-light">
     <h3 class="navbar-brand mb-0 text-secondary">My Dating Website</h3>
+    <a href="admin">Admin panel</a>
 </nav>
 <div id="base" class="container">
 

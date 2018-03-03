@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 
 function connect()
 {
+    require_once '/home/aknoxgre/config.php';
     try {
         //Instantiate a database object
         $dbh = new PDO(DB_DSN, DB_USERNAME,
@@ -31,12 +32,12 @@ function connect()
     }
 }
 
-function getStudents()
+function getMembers()
 {
     global $dbh;
 
     //1. Define the query
-    $sql = "SELECT * FROM members ORDER BY last, first";
+    $sql = "SELECT * FROM members ORDER BY lname";
 
     //2. Prepare the statement
     $statement = $dbh->prepare($sql);
@@ -52,7 +53,7 @@ function getStudents()
     return $result;
 }
 
-function insertStudent($fname, $lname, $age, $gender, $email, $state, $seeking, $bio, $premium, $image, $interests)
+function insertMember($fname, $lname, $age, $gender, $email, $state, $seeking, $bio, $premium, $image, $interests)
 {
     global $dbh;
 
@@ -82,7 +83,7 @@ function insertStudent($fname, $lname, $age, $gender, $email, $state, $seeking, 
     return $result;
 }
 
-function getStudent($fname, $lname)
+function getMember($fname, $lname)
 {
     global $dbh;
     $sql = ("SELECT * FROM members WHERE fname = :fname AND lname = :lname");
@@ -101,6 +102,4 @@ function getStudent($fname, $lname)
     $member->setImage($result['image']);
     $member->setPremium($result['premium']);
     return $member;
-
-
 }

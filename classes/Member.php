@@ -53,8 +53,13 @@ class Member
      */
     function setfName($fname)
     {
-        $this->fname = $fname;
-    }
+        if (ctype_alnum($fname)) {
+            $this->fname = $fname;
+        }
+        else{
+            $this->fname = "InvalidFName";
+        }
+        }
 
     /**
      * @return String lname
@@ -71,7 +76,12 @@ class Member
      */
     function setlName($lname)
     {
-        $this->lname = $lname;
+        if (ctype_alnum($lname)) {
+            $this->lname = $lname;
+        }
+        else{
+            $this->lname = "InvalidlName";
+        }
     }
 
     /**
@@ -89,7 +99,12 @@ class Member
      */
     function setAge($age)
     {
-        $this->age = $age;
+        if ($age > 17) {
+            $this->age = $age;
+        }
+        else{
+            $this->age = 18;
+        }
     }
 
     /**

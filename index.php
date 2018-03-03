@@ -12,6 +12,7 @@
         echo $template->render('pages/home.html');
     });
 
+    //personal info page routing, initial setup
     $f3->route('GET|POST /personal_info', function($f3) {
 
         if(isset($_POST['submit']))
@@ -55,7 +56,7 @@
         $template = new Template();
         echo $template->render('pages/info.php');
     });
-
+    //profile page routing
     $f3->route('POST|GET /profile', function($f3) {
 
         if(isset($_POST['submit']))
@@ -94,6 +95,7 @@
         echo $template->render('pages/profile.php');
     });
 
+    //interests page routing
     $f3->route('GET|POST /interests', function($f3) {
         if (isset($_POST['submit'])) {
             $f3->reroute("/profile_summary");
@@ -112,7 +114,7 @@
         $template = new Template();
         echo $template->render('pages/interests.php');
     });
-
+    //Summary page routing
     $f3->route('GET|POST /profile_summary', function($f3) {
         $member = $_SESSION['member'];
         $f3->set('fname',$member->getFname());
@@ -124,10 +126,22 @@
         $f3->set('state', $member->getState());
         $f3->set('bio', $member->getBio());
         $f3->set('seeking', $member->getSeeking());
+        require ("model/database.php");
+        $dbh = connect();
+        insertMember($member->getfName(),$member->getlName(),$member->getAge(),$member->getGender(),
+            $member->getPhone(),$member->getEmail(),$member->getState(),$member->getSeeking(),$member->getBio(),
+            $member->getPremium(), $member->getImage(), $member->getInterests());
 
         $template = new Template();
         echo $template->render('pages/summary.php');
     });
 
+    $f3->route('GET|POST /admin', function($f3){
+        require ("model/database.php");
+        $dbh = connect();
+       $f3->set('members',getMembers());
+        $template = new Template();
+        echo $template->render('pages/admin.php');
+    });
     $f3->run();
 ?>
