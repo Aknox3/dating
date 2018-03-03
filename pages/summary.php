@@ -67,6 +67,10 @@ ini_set("display_errors", 1);
 
                     </repeat></p>
             </div>
+            <!-- Did the member get inserted into the databse?-->
+            <div class ="border">
+                <p>Inserted into table: {{ @success }}</p>
+            </div>
 
 
 

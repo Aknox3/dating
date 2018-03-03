@@ -129,9 +129,10 @@
         $f3->set('state', $member->getState());
         $f3->set('bio', $member->getBio());
         $f3->set('seeking', $member->getSeeking());
-        insertMember($member->getfName(),$member->getlName(),$member->getAge(),$member->getGender(),
+        //insert into database, record result for debugging purposes
+        $f3->set('inserted', insertMember($member->getfName(),$member->getlName(),$member->getAge(),$member->getGender(),
             $member->getPhone(),$member->getEmail(),$member->getState(),$member->getSeeking(),$member->getBio(),
-            $member->getPremium(), $member->getImage(), $member->getInterests());
+            $member->getPremium(), $member->getImage(), $member->getInterests()));
 
         $template = new Template();
         echo $template->render('pages/summary.php');
