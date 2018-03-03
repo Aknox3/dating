@@ -215,29 +215,54 @@ class Member
         $this->bio = $bio;
     }
 
+    /**
+     * @return 0 if user is not premium, 1 if user is premium
+     */
     function getPremium()
     {
         return $this->premium;
     }
 
+    /**
+     * @param $premium
+     * Sets the premium status of this member. Used mainly for database and admin viewing
+     */
     function setPremium($premium)
     {
         $this->premium = $premium;
     }
 
+    /**
+     * @return array interests
+     * will return the interests array, if any
+     */
     function getInterests()
     {
         return $this->interests;
     }
 
+    /**
+     * @param $interests
+     * will set the interests array to the input array
+     */
     function setInterests($interests)
     {
         $this->interests = $interests;
     }
+
+    /**
+     * @return mixed
+     * returns the path of the image associated with this member (not supported)
+     */
     function getImage()
     {
         return $this->image;
     }
+
+    /**
+     * @param $image
+     * sets the path of the image associated with this member (not supported)
+     */
     function setImage($image)
     {
         $this->image = $image;
